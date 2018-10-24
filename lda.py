@@ -65,8 +65,8 @@ class LinearDiscriminantAnalysis(BaseEstimator, ClassifierMixin):
             i += 1
 
         for k in prop.keys():
-        	mean[k] /= prop[k]
-        	prop[k] /= nb_samples
+            mean[k] /= prop[k]
+            prop[k] /= nb_samples
 
         cov = np.cov(X, None, False)
 
@@ -108,7 +108,7 @@ class LinearDiscriminantAnalysis(BaseEstimator, ClassifierMixin):
 
             # Sending back the key with the highest value
             for k in self.prop.keys():
-            	Bayes[k] = (densities[k] * self.prop[k] / den)
+                Bayes[k] = (densities[k] * self.prop[k] / den)
 
             y.append(max(Bayes, key=Bayes.get))
 
@@ -142,11 +142,11 @@ class LinearDiscriminantAnalysis(BaseEstimator, ClassifierMixin):
 
             den = 0
             for k in self.prop.keys():
-            	den += self.prop[k] * densities[k]
+                den += self.prop[k] * densities[k]
 
             numerator = list()
             for k in sorted(num.keys()):
-            	numerator.append(num[k])
+                numerator.append(num[k])
 
             numerator = np.asarray(numerator)
             p[i] = numerator / den
@@ -176,10 +176,10 @@ if __name__ == "__main__":
 
     seed = 10000  # Will change for each generation
     for i in range(5):
-        (train_set1, test_set1) = (make_dataset1(
-            1200, seed), make_dataset1(300, seed))
-        (train_set2, test_set2) = (make_dataset2(
-            1200, seed), make_dataset2(300, seed))
+        (train_set1, test_set1) = (make_dataset1(1200, seed),
+                                   make_dataset1(300, seed))
+        (train_set2, test_set2) = (make_dataset2(1200, seed),
+                                   make_dataset2(300, seed))
 
         (lda1, lda2) = (LinearDiscriminantAnalysis(),
                         LinearDiscriminantAnalysis())
