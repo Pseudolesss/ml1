@@ -129,8 +129,7 @@ class LinearDiscriminantAnalysis(BaseEstimator, ClassifierMixin):
         by lexicographic order.
         """
 
-        nb_classes = self.nb_classes
-        p = np.empty([len(X), nb_classes])
+        p = np.empty([len(X), self.nb_classes])
         num = dict()
         densities = dict()
         i = 0
